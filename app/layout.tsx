@@ -1,33 +1,48 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Bodoni_Moda,
+  Cormorant_Garamond,
+  Inter,
+} from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Ellé Fox | Actor",
+    default: "Ellé Fox | Actor, Writer & Voice Artist",
     template: "%s | Ellé Fox",
   },
 
   description:
-    "Official acting portfolio for Ellé Fox, featuring acting credits, performance reels, professional photos, statistics, special skills, and contact information.",
+    "Official creative portfolio for Ellé Fox, featuring acting, writing, voiceover, professional photography, credits, and career highlights.",
 
   keywords: [
     "Ellé Fox",
     "Ellé Fox actor",
-    "actor portfolio",
+    "Ellé Fox writer",
+    "Ellé Fox voice artist",
     "acting reel",
-    "acting credits",
-    "professional actor",
+    "screenwriter",
+    "voiceover artist",
+    "storyteller",
   ],
 
   authors: [
@@ -39,18 +54,18 @@ export const metadata: Metadata = {
   creator: "Ellé Fox",
 
   openGraph: {
-    title: "Ellé Fox | Actor",
+    title: "Ellé Fox | Actor, Writer & Voice Artist",
     description:
-      "Explore Ellé Fox's acting credits, performance reels, professional photography, and career information.",
+      "Explore the acting, writing, voiceover work, and creative world of Ellé Fox.",
     type: "website",
     locale: "en_US",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Ellé Fox | Actor",
+    title: "Ellé Fox | Actor, Writer & Voice Artist",
     description:
-      "Explore Ellé Fox's acting credits, performance reels, professional photography, and career information.",
+      "Explore the acting, writing, voiceover work, and creative world of Ellé Fox.",
   },
 
   robots: {
@@ -67,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${cormorant.variable} ${inter.variable} ${bodoni.variable} antialiased`}
       >
         {children}
       </body>

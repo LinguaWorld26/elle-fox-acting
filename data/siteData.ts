@@ -1,12 +1,12 @@
 export const siteData = {
-    name: "Ellé Fox",
-    profession: "Actor",
+  name: "Ellé Fox",
+  profession: "Actor · Writer · Voice Artist · Storyteller",
   
-    hero: {
-      tagline: "Film, television, theater, and performance",
-      introduction:
-        "A professional acting portfolio featuring selected credits, performance reels, photography, and career highlights.",
-    },
+  hero: {
+    tagline: "Every story reveals another layer.",
+    introduction:
+      "Ellé Fox is a multidisciplinary storyteller creating emotionally resonant work across acting, writing, voiceover, and creative development.",
+  },
   
     about: {
       heading: "About Ellé",

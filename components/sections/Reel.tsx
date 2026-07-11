@@ -4,43 +4,56 @@ export default function Reel() {
   return (
     <section
       id="reel"
-      className="border-t border-white/10 px-6 py-24 md:px-10"
+      className="relative overflow-hidden border-t border-gold/15 bg-midnight px-6 py-28 text-ivory md:px-10"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.35em] text-stone-400">
-            Performance
-          </p>
+      <div
+        aria-hidden="true"
+        className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-purple/15 blur-[120px]"
+      />
 
-          <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
-            {siteData.reel.heading}
-          </h2>
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:items-end">
+          <div>
+            <p className="font-navigation text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+              The Performer
+            </p>
 
-          <p className="mt-6 text-lg leading-8 text-stone-300">
+            <h2 className="mt-5 font-serif text-5xl font-semibold leading-[0.95] tracking-tight md:text-6xl">
+              {siteData.reel.heading}
+            </h2>
+
+            <div className="mt-8 h-px w-20 bg-purple" />
+          </div>
+
+          <p className="max-w-2xl text-lg leading-8 text-ivory/70 md:text-xl md:leading-9">
             {siteData.reel.description}
           </p>
         </div>
 
-        <div className="flex aspect-video items-center justify-center border border-white/15 bg-stone-900">
-          {siteData.reel.videoUrl ? (
-            <iframe
-              src={siteData.reel.videoUrl}
-              title={`${siteData.name} acting reel`}
-              className="h-full w-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          ) : (
-            <div className="px-6 text-center">
-              <p className="text-xl font-medium text-white">
-                Acting reel coming soon
-              </p>
+        <div className="mt-14 overflow-hidden border border-gold/20 bg-black shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+          <div className="aspect-video">
+            {siteData.reel.videoUrl ? (
+              <iframe
+                src={siteData.reel.videoUrl}
+                title={`${siteData.name} acting reel`}
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center bg-gradient-to-br from-purple/20 via-midnight to-black px-6 text-center">
+                <div>
+                  <p className="font-serif text-3xl font-semibold text-ivory md:text-4xl">
+                    Acting reel coming soon
+                  </p>
 
-              <p className="mt-3 text-stone-400">
-                A YouTube or Vimeo reel will appear here.
-              </p>
-            </div>
-          )}
+                  <p className="mt-4 font-navigation text-xs uppercase tracking-[0.22em] text-ivory/50">
+                    Selected scenes and performances
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function Navigation() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-stone-950/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-gold/20 bg-midnight/95 backdrop-blur-md">
       <nav
         aria-label="Main navigation"
         className="mx-auto max-w-7xl px-6 md:px-10"
@@ -29,7 +29,7 @@ export default function Navigation() {
           <a
             href="#home"
             onClick={closeMenu}
-            className="text-xl font-semibold tracking-wide text-white"
+            className="font-serif text-2xl font-semibold tracking-wide text-ivory transition hover:text-gold"
           >
             {siteData.name}
           </a>
@@ -39,7 +39,7 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm uppercase tracking-widest text-stone-300 transition hover:text-white"
+                className="font-navigation text-xs font-medium uppercase tracking-[0.18em] text-ivory/70 transition hover:text-gold"
               >
                 {link.label}
               </a>
@@ -50,9 +50,11 @@ export default function Navigation() {
             type="button"
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              menuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             onClick={() => setMenuOpen((current) => !current)}
-            className="border border-white/20 px-4 py-2 text-sm uppercase tracking-widest text-white md:hidden"
+            className="border border-gold/50 px-4 py-2 font-navigation text-xs font-medium uppercase tracking-[0.18em] text-ivory transition hover:bg-purple hover:text-ivory md:hidden"
           >
             {menuOpen ? "Close" : "Menu"}
           </button>
@@ -61,7 +63,7 @@ export default function Navigation() {
         {menuOpen && (
           <div
             id="mobile-navigation"
-            className="border-t border-white/10 pb-5 pt-3 md:hidden"
+            className="border-t border-gold/20 pb-5 pt-3 md:hidden"
           >
             <div className="flex flex-col">
               {navigationLinks.map((link) => (
@@ -69,7 +71,7 @@ export default function Navigation() {
                   key={link.label}
                   href={link.href}
                   onClick={closeMenu}
-                  className="border-b border-white/10 py-4 text-sm uppercase tracking-widest text-stone-300 transition hover:text-white"
+                  className="border-b border-gold/15 py-4 font-navigation text-xs font-medium uppercase tracking-[0.18em] text-ivory/75 transition hover:text-gold"
                 >
                   {link.label}
                 </a>

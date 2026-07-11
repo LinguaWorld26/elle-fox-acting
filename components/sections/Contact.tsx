@@ -1,7 +1,7 @@
 import { siteData } from "@/data/siteData";
 
 export default function Contact() {
-  const socialLinks = [
+  const professionalLinks = [
     {
       label: "IMDb",
       url: siteData.contact.imdbUrl,
@@ -23,69 +23,81 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="border-t border-white/10 px-6 py-24 md:px-10"
+      className="relative overflow-hidden border-t border-gold/15 bg-midnight px-6 py-28 text-ivory md:px-10"
     >
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_1fr]">
+      <div
+        aria-hidden="true"
+        className="absolute -right-32 top-12 h-96 w-96 rounded-full bg-purple/20 blur-[145px]"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute -left-32 bottom-0 h-72 w-72 rounded-full bg-gold/10 blur-[120px]"
+      />
+
+      <div className="relative mx-auto grid max-w-7xl gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-stone-400">
-            Get in Touch
+          <p className="font-navigation text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+            Connection
           </p>
 
-          <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
-            Contact Ellé
+          <h2 className="mt-5 max-w-3xl font-serif text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl">
+            Let&apos;s tell a story together.
           </h2>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-300">
-            For casting inquiries, professional opportunities, and
-            representation information, use the contact details below.
+          <div className="mt-8 h-px w-24 bg-purple" />
+
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-ivory/65 md:text-xl md:leading-9">
+            For casting, representation, writing, voiceover, creative
+            collaborations, and professional opportunities.
           </p>
         </div>
 
-        <div className="border border-white/10 bg-white/5 p-8">
+        <div className="border border-gold/25 bg-ivory/[0.04] p-8 backdrop-blur-sm md:p-10">
           <div>
-            <p className="text-xs uppercase tracking-widest text-stone-400">
-              Email
+            <p className="font-navigation text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold">
+              Professional Email
             </p>
 
             {siteData.contact.email ? (
               <a
                 href={`mailto:${siteData.contact.email}`}
-                className="mt-2 inline-block text-lg text-white underline-offset-4 hover:underline"
+                className="mt-3 inline-block break-all font-serif text-2xl text-ivory transition hover:text-gold md:text-3xl"
               >
                 {siteData.contact.email}
               </a>
             ) : (
-              <p className="mt-2 text-stone-300">
+              <p className="mt-3 font-serif text-2xl text-ivory/70">
                 Professional email coming soon
               </p>
             )}
           </div>
 
-          <div className="mt-8">
-            <p className="text-xs uppercase tracking-widest text-stone-400">
+          <div className="mt-9 border-t border-gold/15 pt-8">
+            <p className="font-navigation text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold">
               Representation
             </p>
 
-            <p className="mt-2 text-stone-300">
+            <p className="mt-3 leading-7 text-ivory/65">
               {siteData.contact.representation ||
                 "Representation details coming soon"}
             </p>
           </div>
 
-          {socialLinks.length > 0 && (
-            <div className="mt-8">
-              <p className="text-xs uppercase tracking-widest text-stone-400">
+          {professionalLinks.length > 0 && (
+            <div className="mt-9 border-t border-gold/15 pt-8">
+              <p className="font-navigation text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold">
                 Professional Profiles
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-3">
-                {socialLinks.map((link) => (
+              <div className="mt-5 flex flex-wrap gap-3">
+                {professionalLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="border border-white/15 px-4 py-2 text-sm text-stone-200 transition hover:bg-white hover:text-black"
+                    className="border border-purple/70 px-4 py-3 font-navigation text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ivory transition hover:border-gold hover:bg-gold hover:text-midnight"
                   >
                     {link.label}
                   </a>
@@ -99,7 +111,7 @@ export default function Contact() {
               href={siteData.resume.fileUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-block bg-white px-5 py-3 font-medium text-black transition hover:bg-stone-200"
+              className="mt-9 inline-block border border-purple bg-purple px-6 py-3 font-navigation text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition hover:border-gold hover:bg-gold hover:text-midnight"
             >
               View Résumé
             </a>
