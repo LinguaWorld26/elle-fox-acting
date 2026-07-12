@@ -1,12 +1,13 @@
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
-import Credits from "@/components/sections/Credits";
 import Footer from "@/components/sections/Footer";
-import Gallery from "@/components/sections/Gallery";
 import Hero from "@/components/sections/Hero";
 import Navigation from "@/components/sections/Navigation";
-import Reel from "@/components/sections/Reel";
-import Stats from "@/components/sections/Stats";
+import Acting from "@/components/sections/Acting";
+import Writing from "@/components/sections/Writing";
+import Voice from "@/components/sections/Voice";
+import Stories from "@/components/sections/Stories";
+import VisualPortfolio from "@/components/sections/VisualPortfolio";
 
 export default function Home() {
   return (
@@ -14,10 +15,11 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
-      <Reel />
-      <Credits />
-      <Gallery />
-      <Stats />
+      <Acting />
+      <Writing />
+      <Voice />
+      <Stories />
+      <VisualPortfolio />
       <Contact />
       <Footer />
     </main>

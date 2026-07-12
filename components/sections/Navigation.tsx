@@ -5,10 +5,9 @@ import { siteData } from "@/data/siteData";
 
 const navigationLinks = [
   { label: "About", href: "#about" },
-  { label: "Reel", href: "#reel" },
-  { label: "Credits", href: "#credits" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Stats", href: "#stats" },
+  { label: "Acting", href: "#acting" },
+  { label: "Writing", href: "#writing" },
+  { label: "Voice", href: "#voice" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -20,10 +19,10 @@ export default function Navigation() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gold/20 bg-midnight/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-gold/20 bg-midnight/90 backdrop-blur-md">
       <nav
         aria-label="Main navigation"
-        className="mx-auto max-w-7xl px-6 md:px-10"
+        className="mx-auto max-w-[1200px] px-6"
       >
         <div className="flex items-center justify-between py-5">
           <a
@@ -39,11 +38,29 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-navigation text-xs font-medium uppercase tracking-[0.18em] text-ivory/70 transition hover:text-gold"
+                className="font-navigation text-sm font-medium text-ivory/70 transition hover:text-gold"
               >
                 {link.label}
               </a>
             ))}
+
+            {siteData.resume.fileUrl ? (
+              <a
+                href={siteData.resume.fileUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="border border-gold px-5 py-2 font-navigation text-sm font-medium text-ivory transition hover:bg-gold hover:text-midnight"
+              >
+                Résumé
+              </a>
+            ) : (
+              <span
+                title="Résumé coming soon"
+                className="cursor-not-allowed border border-gold/45 px-5 py-2 font-navigation text-sm font-medium text-ivory/45"
+              >
+                Résumé
+              </span>
+            )}
           </div>
 
           <button
@@ -54,16 +71,38 @@ export default function Navigation() {
               menuOpen ? "Close navigation menu" : "Open navigation menu"
             }
             onClick={() => setMenuOpen((current) => !current)}
-            className="border border-gold/50 px-4 py-2 font-navigation text-xs font-medium uppercase tracking-[0.18em] text-ivory transition hover:bg-purple hover:text-ivory md:hidden"
+            className="flex h-11 w-11 items-center justify-center border border-gold/50 text-ivory transition hover:bg-purple md:hidden"
           >
-            {menuOpen ? "Close" : "Menu"}
+            <span className="sr-only">
+              {menuOpen ? "Close menu" : "Open menu"}
+            </span>
+
+            <span className="relative block h-4 w-5">
+              <span
+                className={`absolute left-0 top-0 h-px w-5 bg-current transition ${
+                  menuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+
+              <span
+                className={`absolute left-0 top-[7px] h-px w-5 bg-current transition ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+
+              <span
+                className={`absolute left-0 top-[14px] h-px w-5 bg-current transition ${
+                  menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </span>
           </button>
         </div>
 
         {menuOpen && (
           <div
             id="mobile-navigation"
-            className="border-t border-gold/20 pb-5 pt-3 md:hidden"
+            className="border-t border-gold/20 pb-6 pt-3 md:hidden"
           >
             <div className="flex flex-col">
               {navigationLinks.map((link) => (
@@ -71,11 +110,27 @@ export default function Navigation() {
                   key={link.label}
                   href={link.href}
                   onClick={closeMenu}
-                  className="border-b border-gold/15 py-4 font-navigation text-xs font-medium uppercase tracking-[0.18em] text-ivory/75 transition hover:text-gold"
+                  className="border-b border-gold/15 py-4 font-navigation text-base text-ivory/75 transition hover:text-gold"
                 >
                   {link.label}
                 </a>
               ))}
+
+              {siteData.resume.fileUrl ? (
+                <a
+                  href={siteData.resume.fileUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={closeMenu}
+                  className="mt-5 border border-gold px-5 py-3 text-center font-navigation text-sm font-medium text-ivory transition hover:bg-gold hover:text-midnight"
+                >
+                  Résumé
+                </a>
+              ) : (
+                <span className="mt-5 cursor-not-allowed border border-gold/40 px-5 py-3 text-center font-navigation text-sm font-medium text-ivory/45">
+                  Résumé Coming Soon
+                </span>
+              )}
             </div>
           </div>
         )}

@@ -75,14 +75,15 @@ export const siteData = {
         alt: string;
       }[],
   
-    contact: {
-      email: "",
-      representation: "",
-      imdbUrl: "",
-      instagramUrl: "",
-      actorsAccessUrl: "",
-      castingNetworksUrl: "",
-    },
+      contact: {
+        email: "",
+        representation: "",
+        imdbUrl: "",
+        instagramUrl: "",
+        youtubeUrl: "",
+        actorsAccessUrl: "",
+        castingNetworksUrl: "",
+      },
   
     resume: {
       fileUrl: "",
